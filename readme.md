@@ -30,6 +30,8 @@ const list = new Listr([
 list.run();
 ```
 
+> Note: This renderer supports non-TTY environments.
+
 
 ## Related
 

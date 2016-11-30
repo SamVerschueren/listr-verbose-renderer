@@ -41,6 +41,10 @@ class VerboseRenderer {
 		this._tasks = tasks;
 	}
 
+	get nonTTY() {
+		return true;
+	}
+
 	render() {
 		cliCursor.hide();
 		render(this._tasks);
