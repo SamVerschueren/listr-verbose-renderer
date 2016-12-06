@@ -1,6 +1,6 @@
 {
   "name": "listr-verbose-renderer",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Listr verbose renderer",
   "license": "MIT",
   "repository": "SamVerschueren/listr-verbose-renderer",
