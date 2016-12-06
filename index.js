@@ -41,7 +41,7 @@ class VerboseRenderer {
 		this._tasks = tasks;
 	}
 
-	get nonTTY() {
+	static get nonTTY() {
 		return true;
 	}
 
