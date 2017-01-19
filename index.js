@@ -14,6 +14,8 @@ const renderHelper = (task, event) => {
 		}
 	} else if (event.type === 'DATA') {
 		utils.log(`${figures.arrowRight} ${event.data}`);
+	} else if (event.type === 'TITLE') {
+		utils.log(`${task.title} [title changed]`);
 	}
 };
 
