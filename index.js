@@ -3,32 +3,34 @@ const figures = require('figures');
 const cliCursor = require('cli-cursor');
 const utils = require('./lib/utils');
 
-const renderHelper = (task, event) => {
+const renderHelper = (task, event, options) => {
+	const log = utils.log.bind(undefined, options);
+
 	if (event.type === 'STATE') {
 		const message = task.isPending() ? 'started' : task.state;
 
-		utils.log(`${task.title} [${message}]`);
+		log(`${task.title} [${message}]`);
 
 		if (task.isSkipped() && task.output) {
-			utils.log(`${figures.arrowRight} ${task.output}`);
+			log(`${figures.arrowRight} ${task.output}`);
 		}
 	} else if (event.type === 'DATA') {
-		utils.log(`${figures.arrowRight} ${event.data}`);
+		log(`${figures.arrowRight} ${event.data}`);
 	} else if (event.type === 'TITLE') {
-		utils.log(`${task.title} [title changed]`);
+		log(`${task.title} [title changed]`);
 	}
 };
 
-const render = tasks => {
+const render = (tasks, options) => {
 	for (const task of tasks) {
 		task.subscribe(
 			event => {
 				if (event.type === 'SUBTASKS') {
-					render(task.subtasks);
+					render(task.subtasks, options);
 					return;
 				}
 
-				renderHelper(task, event);
+				renderHelper(task, event, options);
 			},
 			err => {
 				console.log(err);
@@ -39,8 +41,11 @@ const render = tasks => {
 
 class VerboseRenderer {
 
-	constructor(tasks) {
+	constructor(tasks, options) {
 		this._tasks = tasks;
+		this._options = Object.assign({
+			dateFormat: 'HH:mm:ss'
+		}, options);
 	}
 
 	static get nonTTY() {
@@ -49,7 +54,7 @@ class VerboseRenderer {
 
 	render() {
 		cliCursor.hide();
-		render(this._tasks);
+		render(this._tasks, this._options);
 	}
 
 	end() {

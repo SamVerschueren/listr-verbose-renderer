@@ -33,6 +33,18 @@ list.run();
 > Note: This renderer supports non-TTY environments.
 
 
+## Options
+
+These options should be provided in the [Listr](https://github.com/SamVerschueren/listr) options object.
+
+### dateFormat
+
+Type: `string`<br>
+Default: `HH:mm:ss`
+
+Format of the rendered timestamp. Use the [date-fns string format](https://date-fns.org/docs/format).
+
+
 ## Related
 
 - [listr](https://github.com/SamVerschueren/listr) - Terminal task list
