@@ -52,3 +52,23 @@ test('task fails', async t => {
 		t.is(err.message, 'Hello World');
 	}
 });
+
+test('hide timestamp by setting dateFormat to false', async t => {
+	const list = new Listr([
+		{
+			title: 'foo',
+			task: () => Promise.resolve()
+		}
+	], {
+		renderer,
+		dateFormat: false
+	});
+
+	testOutput(t, [
+		'',
+		`foo [started]\n`,
+		`foo [completed]\n`
+	]);
+
+	await list.run();
+});

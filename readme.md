@@ -39,10 +39,10 @@ These options should be provided in the [Listr](https://github.com/SamVerschuere
 
 ### dateFormat
 
-Type: `string`<br>
+Type: `string` `false`<br>
 Default: `HH:mm:ss`
 
-Format of the rendered timestamp. Use the [date-fns string format](https://date-fns.org/docs/format).
+Format of the rendered timestamp. Use the [date-fns string format](https://date-fns.org/docs/format). If `false` is passed in, the timestamp will be hidden.
 
 
 ## Related
