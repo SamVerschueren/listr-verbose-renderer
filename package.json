@@ -39,8 +39,5 @@
     "listr": "*",
     "strip-ansi": "^3.0.1",
     "xo": "*"
-  },
-  "xo": {
-    "esnext": true
   }
 }
