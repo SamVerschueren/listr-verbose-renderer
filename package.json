@@ -34,10 +34,10 @@
     "figures": "^1.7.0"
   },
   "devDependencies": {
-    "ava": "*",
+    "ava": "^0.25.0",
     "hook-std": "^0.3.0",
     "listr": "*",
     "strip-ansi": "^3.0.1",
-    "xo": "*"
+    "xo": "^0.23.0"
   }
 }
