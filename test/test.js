@@ -1,10 +1,10 @@
 import {serial as test} from 'ava';
 import Listr from 'listr';
 import format from 'date-fns/format';
-import renderer from '..';
 import {testOutput} from './fixtures/utils';
+import renderer from '..';
 
-const date = format(new Date(), 'DD/MM/YYYY');
+const date = format(new Date(), 'dd/MM/yyyy');
 
 test('task succeeds', async t => {
 	const list = new Listr([
@@ -14,7 +14,7 @@ test('task succeeds', async t => {
 		}
 	], {
 		renderer,
-		dateFormat: 'DD/MM/YYYY'
+		dateFormat: 'dd/MM/yyyy'
 	});
 
 	testOutput(t, [
@@ -35,7 +35,7 @@ test('task fails', async t => {
 		}
 	], {
 		renderer,
-		dateFormat: 'DD/MM/YYYY'
+		dateFormat: 'dd/MM/yyyy'
 	});
 
 	testOutput(t, [
